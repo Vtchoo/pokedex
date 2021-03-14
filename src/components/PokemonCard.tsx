@@ -18,7 +18,7 @@ function PokemonCard(props: PokemonCardProps) {
 
     return (
         <div
-            className={`${styles.pokemonCard} ${styles[type.name]} ${props.selected ? styles.selected : ''}`}
+            className={`${styles.pokemonCard} ${props.selected ? styles.selected : ''}`}
             onClick={() => props.onClick?.(pokemon)}
             style={{ backgroundColor: colors[type.name]}}
         >
