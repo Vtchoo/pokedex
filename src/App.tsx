@@ -39,7 +39,7 @@ function App() {
 			}))
 				
 			console.log(pokemonData)
-			setPokemons(pokemonData)
+			setPokemons([...pokemons, ...pokemonData])
 			setPage(page + 1)
 			
 		} catch (error) {
