@@ -14,16 +14,9 @@
 
     box-shadow: 0 0 5px rgba(0,0,0,.5) ;
 }
-
-.pokemonId {
-    padding: .25rem;
-    border-radius: 10px;
-
-    margin: .5rem;
-
-    background-color: rgba(168, 185, 168, .2);
+.pokemonCard.normal {
+    background-color: whitesmoke;
 }
-
 .pokemonCard.grass {
     background-color: #e3f8e2;
 }
@@ -36,9 +29,25 @@
 .pokemonCard.bug {
     background-color: #f7d6a8;
 }
-.pokemonCard.normal {
-    background-color: #f7d6a8;
+.pokemonCard.electric {
+    background-color: #feffe1;
 }
+.pokemonCard.poison {
+    background-color: #ffe1fa;
+}
+.pokemonCard.ground {
+    background-color: #d3d3d3;
+}
+
+.pokemonId {
+    padding: .25rem;
+    border-radius: 10px;
+
+    margin: .5rem;
+
+    background-color: rgba(168, 185, 168, .2);
+}
+
 
 .spriteContainer {
     display: flex;

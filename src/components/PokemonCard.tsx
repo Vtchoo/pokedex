@@ -17,7 +17,7 @@ function PokemonCard(props: PokemonCardProps) {
             <div className={`${styles.spriteContainer}`}>
                 <img src={pokemon.sprites.front_default}></img>
             </div>
-            <span className={styles.pokemonId}>#{pokemon.id.toString().padStart(3, '0')}</span>
+            <small className={styles.pokemonId}>#{pokemon.id.toString().padStart(3, '0')}</small>
             <strong>{StringUtils.capitalize(pokemon.name)}</strong>
             <small>Type: {type.name}</small>
         </div>
