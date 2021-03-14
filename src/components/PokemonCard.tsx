@@ -19,7 +19,7 @@ function PokemonCard(props: PokemonCardProps) {
             </div>
             <span className={styles.pokemonId}>#{pokemon.id.toString().padStart(3, '0')}</span>
             <strong>{StringUtils.capitalize(pokemon.name)}</strong>
-            <span>Type: {type.name}</span>
+            <small>Type: {type.name}</small>
         </div>
     )
 }
