@@ -19,6 +19,7 @@ function App() {
 	const [offset, setOffset] = useState(0)
 
 	const [pokemons, setPokemons] = useState<Pokemon[]>([])
+	const [selectedPokemon, setSelectedPokemon] = useState<Pokemon>()
 
 	useEffect(() => { fetchPokemon() }, [])
 
@@ -63,7 +64,14 @@ function App() {
 	return (
 		<div className="App">
 			<div className="pokemon-list">
-				{pokemons.map(pokemon => <PokemonCard key={pokemon.id} pokemon={pokemon} />)}
+				{pokemons.map(pokemon =>
+					<PokemonCard
+						key={pokemon.id}
+						pokemon={pokemon}
+						selected={pokemon === selectedPokemon}
+						onClick={pokemon => setSelectedPokemon(pokemon !== selectedPokemon ? pokemon : undefined)}
+					/>
+				)}
 			</div>
 
 			<button disabled={loading} className='load-more' onClick={fetchPokemon}>

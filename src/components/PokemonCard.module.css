@@ -3,17 +3,19 @@
     flex-direction: column;
 
     padding: 1rem;
-    margin: .5rem;
+    /* margin: .5rem; */
 
     background-color: whitesmoke;
     align-self: stretch;
     align-items: center;
 
-    /* width: 100%; */
+    width: 100%;
 
     border-radius: 20px;
 
     box-shadow: 0 0 5px rgba(0,0,0,.5) ;
+
+    transition: transform .1s ease;
 }
 .pokemonCard.normal {
     background-color: whitesmoke;
@@ -38,6 +40,11 @@
 }
 .pokemonCard.ground {
     background-color: #d3d3d3;
+}
+
+.pokemonCard.selected {
+    box-shadow: 0 0 20px teal ;
+    transform: scale(1.2);
 }
 
 .pokemonId {
