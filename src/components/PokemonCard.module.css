@@ -17,30 +17,6 @@
 
     transition: transform .1s ease;
 }
-.pokemonCard.normal {
-    background-color: whitesmoke;
-}
-.pokemonCard.grass {
-    background-color: #e3f8e2;
-}
-.pokemonCard.fire {
-    background-color: #fce2e0;
-}
-.pokemonCard.water {
-    background-color: #e1f1ff;
-}
-.pokemonCard.bug {
-    background-color: #f7d6a8;
-}
-.pokemonCard.electric {
-    background-color: #feffe1;
-}
-.pokemonCard.poison {
-    background-color: #ffe1fa;
-}
-.pokemonCard.ground {
-    background-color: #d3d3d3;
-}
 
 .pokemonCard.selected {
     box-shadow: 0 0 20px teal ;
