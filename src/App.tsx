@@ -13,8 +13,10 @@ interface PokemonApiResponse{
 
 function App() {
 
-	const [page, setPage] = useState(1)
-	const [resultsPerPage, setResultsPerPage] = useState(50)
+	const [loading, setLoading] = useState(false)
+
+	const [resultsPerPage, setResultsPerPage] = useState(48)
+	const [offset, setOffset] = useState(0)
 
 	const [pokemons, setPokemons] = useState<Pokemon[]>([])
 
@@ -22,9 +24,10 @@ function App() {
 
 	const fetchPokemon = async () => {
 
-		const limit = resultsPerPage
-		const offset = limit * (page - 1)
+		setLoading(true)
 
+		const limit = resultsPerPage
+		//const offset = limit * (page - 1)
 
 		try {
 			const result = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
@@ -32,24 +35,40 @@ function App() {
 
 			const pokemonData = await Promise.all(pokemonList.map(async pokemon => {
 				
-				const rawData = await fetch(pokemon.url)
-				const pokemonInfo = await rawData.json()
-
-				return pokemonInfo
+				try {
+					const rawData = await fetch(pokemon.url)
+					// console.log(rawData)
+					const pokemonInfo = await rawData.json()
+					
+					return pokemonInfo
+				} catch (error) {
+					console.log(error)
+					return null
+				}
 			}))
 				
-			console.log(pokemonData)
-			setPokemons([...pokemons, ...pokemonData])
-			setPage(page + 1)
+			const newPokemons = pokemonData.filter(pokemon => pokemon !== null)
+			console.log(newPokemons)
+
+			setPokemons([...pokemons, ...newPokemons])
+			setOffset(offset + newPokemons.length)
 			
 		} catch (error) {
 			console.log(error)
 		}
+		
+		setLoading(false)
 	}
 
 	return (
 		<div className="App">
-			{pokemons.map(pokemon => <PokemonCard key={pokemon.name} pokemon={pokemon} />)}
+			<div className="pokemon-list">
+				{pokemons.map(pokemon => <PokemonCard key={pokemon.id} pokemon={pokemon} />)}
+			</div>
+
+			<button disabled={loading} className='load-more' onClick={fetchPokemon}>
+				{loading ? 'Loading' : 'Load more...'}
+			</button>
 		</div>
 	)
 }
