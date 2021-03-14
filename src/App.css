@@ -11,11 +11,15 @@
 }
 
 .pokemon-list {
-  display: grid;
-  /* grid-template-columns: auto auto auto auto auto auto; */
+  /* display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   column-gap: 1rem;
-  row-gap: 1rem;
+  row-gap: 1rem; */
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
 
   padding: 2rem;
 
